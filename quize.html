@@ -1,0 +1,121 @@
+quize.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .question {
+        margin-bottom: 20px;
+      }
+
+      .answer {
+        margin-bottom: 10px;
+      }
+
+      .result {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Python Quiz</h1>
+      <div class="question">
+        <h2 id="question-text"></h2>
+        <div class="answer">
+          <input type="radio" name="answer" id="answer1" />
+          <label for="answer1" id="answer1-text"></label>
+        </div>
+        <div class="answer">
+          <input type="radio" name="answer" id="answer2" />
+          <label for="answer2" id="answer2-text"></label>
+        </div>
+        <div class="answer">
+          <input type="radio" name="answer" id="answer3" />
+          <label for="answer3" id="answer3-text"></label>
+        </div>
+        <div class="answer">
+          <input type="radio" name="answer" id="answer4" />
+          <label for="answer4" id="answer4-text"></label>
+        </div>
+        <button onclick="checkAnswer()">Submit</button>
+      </div>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          text: "What is the primary data type used to represent whole numbers in Python?",
+          answers: ["String", "Float", "Integer", "Boolean"],
+          correctAnswer: 2,
+        },
+        {
+          text: "Which of these is a valid variable name in Python?",
+          answers: ["my-variable", "my variable", "my_variable", "MyVariable"],
+          correctAnswer: 2,
+        },
+        {
+          text: "What is the output of the following code: print(5 + 3 * 2)",
+          answers: ["16", "11", "8", "13"],
+          correctAnswer: 1,
+        },
+      ];
+
+      let currentQuestionIndex = 0;
+
+      function displayQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        document.getElementById("question-text").textContent =
+          currentQuestion.text;
+        document.getElementById("answer1-text").textContent =
+          currentQuestion.answers[0];
+        document.getElementById("answer2-text").textContent =
+          currentQuestion.answers[1];
+        document.getElementById("answer3-text").textContent =
+          currentQuestion.answers[2];
+        document.getElementById("answer4-text").textContent =
+          currentQuestion.answers[3];
+      }
+
+      function checkAnswer() {
+        const selectedAnswer = document.querySelector(
+          'input[name="answer"]:checked'
+        );
+        if (selectedAnswer) {
+          const currentQuestion = questions[currentQuestionIndex];
+          const userAnswer =
+            parseInt(selectedAnswer.id.replace("answer", "")) - 1;
+          if (userAnswer === currentQuestion.correctAnswer) {
+            document.getElementById("result").textContent = "Correct!";
+          } else {
+            document.getElementById("result").textContent =
+              "Incorrect. Please try again.";
+          }
+          currentQuestionIndex++;
+          if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+          } else {
+            document.getElementById("result").textContent =
+              "You have completed the quiz!";
+          }
+        }
+      }
+
+      displayQuestion();
+    </script>
+  </body>
+</html>
