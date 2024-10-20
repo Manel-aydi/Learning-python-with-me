@@ -1,0 +1,33 @@
+body {
+    background-image: 
+    url('c:\Users\DELL\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\6BE93F7A96FED60C477D30AE1DE032FD\WhatsApp Image 2024-10-15 at 16.14.06_2ae1629a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Aria' , sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1, h2, p, li {
+    color: #800080;
+}
+button {
+    background-color: #800080;
+    color: cornflowerblue;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #4b0082;
+}
+a {
+    color: #800080;
+    text-decoration: none;
+}
+a:hover {
+    color: #4b0082;
+    text-decoration: underline;
+}
