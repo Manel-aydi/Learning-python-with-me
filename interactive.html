@@ -1,0 +1,34 @@
+</html>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>interactive python lessons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/python/python.min.js"></script>
+    <style>
+        .CodeMirror { height: auto; }
+    </style>
+</head>
+<body>
+    <h1>write python code here</h1>
+    <textarea id="code" name="code"></textarea>
+    <button onclick="runCode()">run the code</button>
+    <pre id="output"></pre>
+
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: "python",
+            lineNumbers: true
+        });
+
+        function runCode() {
+            const code = editor.getValue();
+            //you cane use a service like Repl.it to execute the code
+            document.getElementById("output").innerText = "execute the code here ...";
+        }
+    </script>
+</body>
+</html>
