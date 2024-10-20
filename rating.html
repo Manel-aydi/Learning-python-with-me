@@ -1,0 +1,17 @@
+rating.html
+<div>
+  <h2>your evaluation of the lesson</h2>
+  <button onclick="rate(1)">⭐</button>
+  <button onclick="rate(2)">⭐⭐</button>
+  <button onclick="rate(3)">⭐⭐⭐</button>
+  <button onclick="rate(4)">⭐⭐⭐⭐</button>
+  <button onclick="rate(5)">⭐⭐⭐⭐⭐</button>
+  <p id="feedback"></p>
+</div>
+
+<script>
+  function rate(stars) {
+    document.getElementById("feedback").innerText =
+      "thank you for your rating " + stars + "stars!";
+  }
+</script>
